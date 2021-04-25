@@ -6,14 +6,15 @@
 #' The page must have been saved with `selfcontained = TRUE` in the
 #' call to [htmlwidgets::saveWidget()].
 #'
-#' @param html A string containing a valid path to an .html file.
+#' @param filename .html file to CDNify.
+#' @param libdir Directory containing dependencies (defaults to filename_files).
 #'
 #' @export
-cdnify_leaflet <- function(html, libdir = sub(".html$", "_files", html)) {
-  if(missing(html))
-    stop("Argument 'html' must be provided.")
+cdnify_leaflet <- function(filename, libdir = sub(".html$", "_files", filename)) {
+  if(missing(filename))
+    stop("Argument 'filename' must be provided.")
 
-  html %>%
+  filename %>%
     readLines() %>%
     stringr::str_replace(
       "=\"[^\"]*htmlwidgets-([0-9\\.]+)/htmlwidgets.js\"",
@@ -47,7 +48,7 @@ cdnify_leaflet <- function(html, libdir = sub(".html$", "_files", html)) {
       "=\"[^\"]*rstudio_leaflet-([0-9\\.]+)/rstudio_leaflet.css\"",
       "=\"https://cdn.jsdelivr.net/gh/rstudio/leaflet/inst/htmlwidgets/lib/rstudio_leaflet/rstudio_leaflet.css\""
     ) %>%
-    writeLines(html)
+    writeLines(filename)
 
   to_delete <-
     c(

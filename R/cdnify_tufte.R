@@ -15,23 +15,23 @@
 #'     self_contained: false
 #' ---}
 #'
-#' @param html A string containing a valid path to an .html file.
+#' @param filename .html file to CDNify.
+#' @param libdir Directory containing dependencies (defaults to filename_files).
 #'
 #' @export
-cdnify_tufte <- function(html) {
-  if(missing(html))
-    stop("Argument 'html' must be provided.")
+cdnify_tufte <- function(filename, libdir = sub(".html$", "_files", filename)) {
+  if(missing(filename))
+    stop("Argument 'filename' must be provided.")
 
-  html %>%
+  filename %>%
     readLines() %>%
     stringr::str_replace(
       "=\"[^\"]*highlightjs-([0-9\\.]+)/highlight.js\"",
       "=\"https://unpkg.com/highlight.js@\\1/lib/highlight.js\""
     ) %>%
-    writeLines(html)
+    writeLines(filename)
 
-  html %>%
-    dirname() %>%
+  libdir %>%
     list.files(full.names = TRUE, recursive = TRUE) %>%
     .[which(stringr::str_detect(., "/highlight.js$"))] %>%
     file.remove()

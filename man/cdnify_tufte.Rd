@@ -4,10 +4,12 @@
 \alias{cdnify_tufte}
 \title{CDNify a \strong{tufte} page}
 \usage{
-cdnify_tufte(html)
+cdnify_tufte(filename, libdir = sub(".html$", "_files", filename))
 }
 \arguments{
-\item{html}{A string containing a valid path to an .html file.}
+\item{filename}{.html file to CDNify.}
+
+\item{libdir}{Directory containing dependencies (defaults to filename_files).}
 }
 \description{
 This function replaces dependencies in .html pages generated using

@@ -4,10 +4,12 @@
 \alias{cdnify_leaflet}
 \title{CDNify a \strong{tufte} page}
 \usage{
-cdnify_leaflet(html, libdir = sub(".html$", "_files", html))
+cdnify_leaflet(filename, libdir = sub(".html$", "_files", filename))
 }
 \arguments{
-\item{html}{A string containing a valid path to an .html file.}
+\item{filename}{.html file to CDNify.}
+
+\item{libdir}{Directory containing dependencies (defaults to filename_files).}
 }
 \description{
 This function replaces dependencies in \href{https://rstudio.github.io/leaflet/}{leaflet}
