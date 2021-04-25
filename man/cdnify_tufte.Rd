@@ -14,7 +14,7 @@ This function replaces dependencies in .html pages generated using
 the \href{https://github.com/rstudio/tufte}{tufte} package.
 }
 \details{
-The page must have been knit with `self_contained: false``in the
+The page must have been knit with \code{self_contained: false} in the
 YAML header. For example, a valid header would be:
 
 \preformatted{---
