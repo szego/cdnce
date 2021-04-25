@@ -10,7 +10,7 @@ Authors@R:
 Description: cdnce ("cadence") modifies generated .html pages so that they
     load JavaScript and CSS resources from remote CDNs instead of from local
     files. This can greatly reduce their strain on your bandwidth.
-License: MIT + file LICENSE
+License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
