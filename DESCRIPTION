@@ -17,3 +17,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     magrittr
+URL: https://github.com/szego/cdnce
+BugReports: https://github.com/szego/cdnce/issues
