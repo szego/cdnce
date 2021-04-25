@@ -32,7 +32,7 @@ cdnify_tufte <- function(html) {
 
   html %>%
     dirname() %>%
-    list.files(recursive = TRUE) %>%
+    list.files(full.names = TRUE, recursive = TRUE) %>%
     .[which(stringr::str_detect(., "highlight.js$"))] %>%
     file.remove()
 
