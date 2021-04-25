@@ -25,8 +25,8 @@ cdnify_tufte <- function(html) {
   html %>%
     readLines() %>%
     stringr::str_replace(
-      "<script src=\"([^/]+)/highlightjs-([0-9\\.]+)/highlight.js\">",
-      "<script src=\"https://unpkg.com/highlight.js@\\2/lib/highlight.js\">"
+      "=\"[^\"]*highlightjs-([0-9\\.]+)/highlight.js\"",
+      "=\"https://unpkg.com/highlight.js@\\1/lib/highlight.js\""
     ) %>%
     writeLines(html)
 
