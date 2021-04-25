@@ -22,7 +22,8 @@ devtools::install_github("szego/cdnce")
 
 ## Example
 
-Consider a simple document using the tufte style:
+Consider a simple document using the
+[tufte](https://github.com/rstudio/tufte) style:
 
     ---
     title: "An Example Using the Tufte Style"
