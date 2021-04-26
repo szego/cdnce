@@ -2,5 +2,6 @@
 
 export("%>%")
 export(cdnify_leaflet)
+export(cdnify_plotly)
 export(cdnify_tufte)
 importFrom(magrittr,"%>%")
