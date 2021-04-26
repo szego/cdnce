@@ -52,22 +52,21 @@ cdnify_plotly <- function(filename, libdir = sub(".html$", "_files", filename)) 
 
   to_delete <-
     c(
-      "/htmlwidgets.js$",
-      "/jquery.min.js$",
-      "/plotly.js$",
-      "/typedarray.min.js$",
-      "/crosstalk.css$",
-      "/crosstalk.min.js$",
-      "/plotly-htmlwidgets.css$",
-      "/plotly-latest.min.js$"
+      "/htmlwidgets-([0-9\\.]+)$",
+      "/jquery-([0-9\\.]+)$",
+      "/plotly-binding-([0-9\\.]+)$",
+      "/typedarray-([0-9\\.]+)$",
+      "/crosstalk-([0-9\\.]+)$",
+      "/plotly-htmlwidgets-css-([0-9\\.]+)$",
+      "/plotly-main-([0-9\\.]+)$"
     ) %>%
     paste(collapse = "|") %>%
     paste0("(", ., ")")
 
   libdir %>%
-    list.files(full.names = TRUE, recursive = TRUE) %>%
+    list.dirs(full.names = TRUE, recursive = TRUE) %>%
     .[which(stringr::str_detect(., to_delete))] %>%
-    file.remove()
+    unlink(recursive = TRUE)
 
   invisible()
 }

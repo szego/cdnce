@@ -52,22 +52,22 @@ cdnify_leaflet <- function(filename, libdir = sub(".html$", "_files", filename))
 
   to_delete <-
     c(
-      "/htmlwidgets.js$",
-      "/jquery.min.js$",
-      "/leaflet.js$",
-      "/leaflet.css$",
-      "/proj4leaflet.js$",
-      "/proj4.min.js$",
-      "/leafletfix.css$",
-      "/rstudio_leaflet.css$"
+      "/htmlwidgets-([0-9\\.]+)$",
+      "/jquery-([0-9\\.]+)$",
+      "/leaflet-([0-9\\.]+)$",
+      "/Proj4Leaflet-([0-9\\.]+)$",
+      "/proj4-([0-9\\.]+)$",
+      "/leaflet-binding-([0-9\\.]+)$",
+      "/leafletfix-([0-9\\.]+)$",
+      "/rstudio_leaflet-([0-9\\.]+)$"
     ) %>%
     paste(collapse = "|") %>%
     paste0("(", ., ")")
 
   libdir %>%
-    list.files(full.names = TRUE, recursive = TRUE) %>%
+    list.dirs(full.names = TRUE, recursive = TRUE) %>%
     .[which(stringr::str_detect(., to_delete))] %>%
-    file.remove()
+    unlink(recursive = TRUE)
 
   invisible()
 }

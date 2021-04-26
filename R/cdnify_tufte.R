@@ -32,9 +32,9 @@ cdnify_tufte <- function(filename, libdir = sub(".html$", "_files", filename)) {
     writeLines(filename)
 
   libdir %>%
-    list.files(full.names = TRUE, recursive = TRUE) %>%
-    .[which(stringr::str_detect(., "/highlight.js$"))] %>%
-    file.remove()
+    list.dirs(full.names = TRUE, recursive = TRUE) %>%
+    .[which(stringr::str_detect(., "/highlightjs-([0-9\\.]+)$"))] %>%
+    unlink(recursive = TRUE)
 
   invisible()
 }
