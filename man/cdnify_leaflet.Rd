@@ -16,6 +16,6 @@ This function replaces dependencies in \href{https://rstudio.github.io/leaflet/}
 .html pages generated using \code{\link[htmlwidgets:saveWidget]{htmlwidgets::saveWidget()}}.
 }
 \details{
-The page must have been saved with \code{selfcontained = TRUE} in the
+The page must have been saved with \code{selfcontained = FALSE} in the
 call to \code{\link[htmlwidgets:saveWidget]{htmlwidgets::saveWidget()}}.
 }

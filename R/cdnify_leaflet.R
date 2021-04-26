@@ -3,7 +3,7 @@
 #' This function replaces dependencies in [leaflet](https://rstudio.github.io/leaflet/)
 #' .html pages generated using [htmlwidgets::saveWidget()].
 #'
-#' The page must have been saved with `selfcontained = TRUE` in the
+#' The page must have been saved with `selfcontained = FALSE` in the
 #' call to [htmlwidgets::saveWidget()].
 #'
 #' @param filename .html file to CDNify.
