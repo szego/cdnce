@@ -5,7 +5,7 @@ Authors@R:
     person(given = "Antonio R.",
            family = "Vargas",
            role = c("aut", "cre"),
-           email = "antonio.r.vargas@gmail.com",
+           email = "antonio.ravon.vargas@gmail.com",
            comment = c(ORCID = "0000-0002-1198-4856"))
 Description: cdnce ("cadence") modifies generated .html pages so that they
     load JavaScript and CSS resources from remote CDNs instead of from local
